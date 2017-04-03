@@ -1,4 +1,3 @@
-package isr;
 
 public class Calculator {
 	private double sueldoMensual,//
@@ -111,14 +110,17 @@ public class Calculator {
 		else{
 			deduccionTotal = gastosMedicos + donativos + transporteEscolar + colegiaturaTotal + gastosFunerarios + seguroMedico + creditoHipotecario;
 		}
+		//deduciones permitidas (10% + 10% retiro)
 		
-		if(deduccionTotal <= ingresoTotalGra*.10)
-		{
+		if(((getIngresoAnual() + aguinaldo + primaVac)*.1)> getDeduccionTotal() ){
+	
 			deduccionesPermitidas = deduccionTotal + maxDeducirRetiro;
 		}
 		else{
-			deduccionesPermitidas = (ingresoTotalGra*.10)+maxDeducirRetiro;
+			deduccionesPermitidas = ((getIngresoAnual() + aguinaldo + primaVac)*.1)+maxDeducirRetiro;
 		}
+		
+		//monto sobre el cual se calcula el isrs
 		
 		montoCalcIsr =ingresoTotalGra - deduccionesPermitidas;
 		
@@ -204,7 +206,8 @@ public class Calculator {
 			pagoExcedente = 192;
 		}
 		
-		totalPagar = getCuotaFija() + getPagoExcedente();
+		
+		totalPagar = cuotaFija + (pagoExcedente*10);
 		
 	}
 	
