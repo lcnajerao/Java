@@ -294,6 +294,7 @@ public class Calculator2 {
 	public double getTotalPagar(){
 		return(totalPagar);
 	}
+	
 	public String toString(){
 		
 		return "Ingreso Anual: "+this.getIngresoAnual() + ",\n" +
@@ -319,7 +320,6 @@ public class Calculator2 {
 		test = new Calculator2(25000.00,30000.00, 6000,50000 ,0, 30000, 20000, 0, 5000, 0, 25000,"preparatoria"
 				+ "");
 		System.out.println(test.toString());
-		
 	}
 
 }
