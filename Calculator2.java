@@ -113,12 +113,13 @@ public class Calculator2 {
 		}
 		//deduciones permitidas (10% + 10% retiro)
 		
-		if(((getIngresoAnual() + aguinaldo + primaVac)*.1)> getDeduccionTotal() ){
+		if(((ingresoAnual + aguinaldo + primaVac)*.1)< deduccionTotal ){
 	
-			deduccionesPermitidas = deduccionTotal + maxDeducirRetiro;
+			deduccionesPermitidas = ((ingresoAnual + aguinaldo + primaVac)*.1)+maxDeducirRetiro;
+			
 		}
 		else{
-			deduccionesPermitidas = ((getIngresoAnual() + aguinaldo + primaVac)*.1)+maxDeducirRetiro;
+			this.deduccionesPermitidas = deduccionTotal + maxDeducirRetiro;	
 		}
 		
 		//monto sobre el cual se calcula el isrs
@@ -208,10 +209,17 @@ public class Calculator2 {
 		}
 		
 		
-		totalPagar = cuotaFija + (pagoExcedente*10);
+		totalPagar = cuotaFija + (pagoExcedente);
 		
 	}
 	
+	public double getAguinaldo(){
+		return (this.aguinaldo);
+	}
+	
+	public double getPrimaVac(){
+		return (this.primaVac);
+	}
 	
 	public double getIngresoAnual(){
 		return(ingresoAnual);
@@ -280,8 +288,9 @@ public class Calculator2 {
 
 	
 	public static void main(String[] args) {
-		Calculator test;
-		test = new Calculator(22500.00,31250.00, 11200,50000 ,0, 30000, 20000, 0, 5000, 0, 25000,"primaria");
+		Calculator2 test;
+		test = new Calculator2(25000.00,30000.00, 6000,50000 ,0, 30000, 20000, 0, 5000, 0, 25000,"preparatoria"
+				+ "");
 		System.out.println("Ingreso Anual "+test.getIngresoAnual());
 		System.out.println("Aguinaldo Exento "+test.getAguinaldoEx());
 		System.out.println("Aguinaldo Grabado "+test.getAguinaldoGra());
@@ -291,6 +300,9 @@ public class Calculator2 {
 		System.out.println("Maximo a deducir Escuela "+test.getMaxDeducirEscolar());
 		System.out.println("Maximo a deducir Retiro "+test.getMaxDeducirRetiro());
 		System.out.println("Deducciones Totales "+test.getDeduccionTotal());
+//		System.out.println(test.getIngresoAnual());
+//		System.out.println(test.getAguinaldo());
+//		System.out.println(test.getPrimaVac());
 		System.out.println("Deducciones Permitidas "+test.getDeduccionesPermitidas());
 		System.out.println("Monto a calcular ISR "+test.getMontoCalcIsr());
 		System.out.println("Cuota Fija "+test.getCuotaFija());
