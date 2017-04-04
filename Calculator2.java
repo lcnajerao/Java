@@ -294,30 +294,32 @@ public class Calculator2 {
 	public double getTotalPagar(){
 		return(totalPagar);
 	}
+	public String toString(){
+		
+		return "Ingreso Anual: "+this.getIngresoAnual() + ",\n" +
+			   " Aguinaldo Exento: "+this.getAguinaldoEx() +",\n "+
+			   "Aguinaldo Grabado: "+this.getAguinaldoGra() + ",\n "+
+			   "Prima Vacacional Exenta: "+this.getPrimaVacEx() +",\n "+
+			   "Prima Vacacional Grabada: "+this.getPrimaVacGra()+",\n " +
+			   "Total de ingresos Grabados: "+this.getIngresoTotalGra()+ ",\n " +
+			   "Maximo a deducir Escuela: "+this.getMaxDeducirEscolar() + ",\n " +
+			   "Maximo a deducir Retiro: "+this.getMaxDeducirRetiro() + ",\n " +
+			   "Deducciones Totales: "+this.getDeduccionTotal() + ",\n " + 
+			   "Deducciones Permitidas: "+this.getDeduccionesPermitidas() + ",\n " +
+			   "Monto a calcular ISR "+this.getMontoCalcIsr() + ",\n " +
+			   "Cuota Fija: "+this.getCuotaFija()+ ",\n " +
+			   "Total a pagar de Excedente: "+this.getPagoExcedente() + ",\n" +
+			   "Total a pagar de Impuestos: "+this.getTotalPagar() + " ."
+			   ;
+	}
 
 	
 	public static void main(String[] args) {
 		Calculator2 test;
 		test = new Calculator2(25000.00,30000.00, 6000,50000 ,0, 30000, 20000, 0, 5000, 0, 25000,"preparatoria"
 				+ "");
-		System.out.println("Ingreso Anual "+test.getIngresoAnual());
-		System.out.println("Aguinaldo Exento "+test.getAguinaldoEx());
-		System.out.println("Aguinaldo Grabado "+test.getAguinaldoGra());
-		System.out.println("Prima Vacacional Exenta "+test.getPrimaVacEx());
-		System.out.println("Prima Vacacional Grabada "+test.getPrimaVacGra());
-		System.out.println("Total de ingresos Grabados "+test.getIngresoTotalGra());
-		System.out.println("Maximo a deducir Escuela "+test.getMaxDeducirEscolar());
-		System.out.println("Maximo a deducir Retiro "+test.getMaxDeducirRetiro());
-		System.out.println("Deducciones Totales "+test.getDeduccionTotal());
-//		System.out.println(test.getIngresoAnual());
-//		System.out.println(test.getAguinaldo());
-//		System.out.println(test.getPrimaVac());
-		System.out.println("Deducciones Permitidas "+test.getDeduccionesPermitidas());
-		System.out.println("Monto a calcular ISR "+test.getMontoCalcIsr());
-		System.out.println("Cuota Fija "+test.getCuotaFija());
-		System.out.println("Excedente sobre 1 "+test.getExcedente());
-		System.out.println("Total a pagar de Excedente "+test.getPagoExcedente());
-		System.out.println("Total a pagar de Impuestos "+test.getTotalPagar());
+		System.out.println(test.toString());
+		
 	}
 
 }
