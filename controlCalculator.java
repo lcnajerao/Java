@@ -8,6 +8,7 @@ import java.awt.event.ItemListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -25,11 +26,11 @@ public class controlCalculator extends JPanel implements ActionListener{
 						JTdonativos,
 						JTcuentaRetiro,
 						JTtransporteEscolar,
-						JTcolegiaturaTotal		
-						/*JTnivelEscolar*/;
+						JTcolegiaturaTotal;
+	
 	private String SnivelEducativo;
 	
-	private JComboBox JCnivelEscolar;//Arreglar este eerror no se xq se da xdxdxdxdxxddxdxxdxdxdxdxdxd
+	private JComboBox JCnivelEscolar;
 	
 	private Calculator2 calcular;
 	
@@ -53,79 +54,79 @@ public class controlCalculator extends JPanel implements ActionListener{
 	
 	public controlCalculator(){
 		super();
-		this.setPreferredSize(new Dimension(300,200));
+		this.setPreferredSize(new Dimension(310,200));
 		this.setBackground(Color.LIGHT_GRAY);
 		
 		this.JTnombre = new JTextField(15);
-		JTnombre.setHorizontalAlignment(JTextField.RIGHT);
+		JTnombre.setHorizontalAlignment(JTextField.LEFT);
 		this.JLnombre= new JLabel("Nombre:                ");
 		this.add(JLnombre);
 		this.add(JTnombre);
 		
 		
 		this.JTrfc = new JTextField(15);
-		JTrfc.setHorizontalAlignment(JTextField.RIGHT);
+		JTrfc.setHorizontalAlignment(JTextField.LEFT);
 		this.JLrfc= new JLabel("RFC:                        ");
 		this.add(JLrfc);
 		this.add(JTrfc);
 
 		this.JTsueldoMensual = new JTextField(15);
-		JTsueldoMensual.setHorizontalAlignment(JTextField.RIGHT);
-		this.JLsueldoMensual = new JLabel("Sueldo Mensual:   ");		
+		JTsueldoMensual.setHorizontalAlignment(JTextField.LEFT);
+		this.JLsueldoMensual = new JLabel("Sueldo Mensual:  ");		
 		this.add(JLsueldoMensual);
 		this.add(JTsueldoMensual);		
 		
 		this.JTaguinaldo   = new JTextField(15);
-		JTaguinaldo.setHorizontalAlignment(JTextField.RIGHT);
+		JTaguinaldo.setHorizontalAlignment(JTextField.LEFT);
 		this.JLaguinaldo   = new JLabel("Aguinaldo:             ");
 		this.add(JLaguinaldo);
 		this.add(JTaguinaldo);
 		
 		this.JTprimaVac   = new JTextField(15);
-		JTprimaVac.setHorizontalAlignment(JTextField.RIGHT);
+		JTprimaVac.setHorizontalAlignment(JTextField.LEFT);
 		this.JLprimaVac   = new JLabel("Prima vacacional:");
 		this.add(JLprimaVac   );
 		this.add(JTprimaVac   );
 		
 		this.JTgastosMedicos   = new JTextField(15);
-		JTgastosMedicos.setHorizontalAlignment(JTextField.RIGHT);
+		JTgastosMedicos.setHorizontalAlignment(JTextField.LEFT);
 		this.JLgastosMedicos   = new JLabel("Gastos Medicos: ");
 		this.add(JLgastosMedicos  );
 		this.add(JTgastosMedicos  );
 		
 		this.JTgastosFunerarios   = new JTextField(15);
-		JTgastosFunerarios.setHorizontalAlignment(JTextField.RIGHT);
-		this.JLgastosFunerarios  = new JLabel("Gastos Funerarios: ");
+		JTgastosFunerarios.setHorizontalAlignment(JTextField.LEFT);
+		this.JLgastosFunerarios  = new JLabel("Gastos Funerarios:");
 		this.add( JLgastosFunerarios);
 		this.add( JTgastosFunerarios );
 		
 		this.JTseguroMedico   = new JTextField(15);
-		JTseguroMedico.setHorizontalAlignment(JTextField.RIGHT);
+		JTseguroMedico.setHorizontalAlignment(JTextField.LEFT);
 		this.JLseguroMedico  = new JLabel("Seguro medico:     ");
 		this.add(JLseguroMedico  );
 		this.add(JTseguroMedico );
 		
 	
 		this.JTcreditoHipotecario   = new JTextField(15);
-		JTcreditoHipotecario.setHorizontalAlignment(JTextField.RIGHT);
+		JTcreditoHipotecario.setHorizontalAlignment(JTextField.LEFT);
 		this.JLcreditoHipotecario  = new JLabel("Credito Hipotecario  ");
 		this.add(JLcreditoHipotecario  );
 		this.add(JTcreditoHipotecario );
 		
 		this.JTdonativos   = new JTextField(15);
-		JTdonativos.setHorizontalAlignment(JTextField.RIGHT);
-		this.JLdonativos  = new JLabel("Donativos:              ");
+		JTdonativos.setHorizontalAlignment(JTextField.LEFT);
+		this.JLdonativos  = new JLabel("Donativos:                ");
 		this.add(JLdonativos  );
 		this.add(JTdonativos );
 		
 		this.JTcuentaRetiro   = new JTextField(15);
-		JTcuentaRetiro.setHorizontalAlignment(JTextField.RIGHT);
+		JTcuentaRetiro.setHorizontalAlignment(JTextField.LEFT);
 		this.JLcuentaRetiro  = new JLabel("Aportacion retiro:  ");
 		this.add(JLcuentaRetiro  );
 		this.add(JTcuentaRetiro );
 		
 		this.JTtransporteEscolar   = new JTextField(15);
-		JTtransporteEscolar.setHorizontalAlignment(JTextField.RIGHT);
+		JTtransporteEscolar.setHorizontalAlignment(JTextField.LEFT);
 		this.JLtransporteEscolar  = new JLabel("Transporte escolar:  ");
 		this.add(JLtransporteEscolar  );
 		this.add(JTtransporteEscolar );
@@ -137,7 +138,7 @@ public class controlCalculator extends JPanel implements ActionListener{
 		JCnivelEscolar.addItem("Preescolar");
 		JCnivelEscolar.addItem("Primaria");
 		JCnivelEscolar.addItem("Secundaria");
-		JCnivelEscolar.addItem("Bachillerato");
+		JCnivelEscolar.addItem("Bachillerato/ Preparatoria");
 		JCnivelEscolar.addItem("Profesional Tecnico");
 		
 		JCnivelEscolar.addItemListener( 
@@ -145,20 +146,20 @@ public class controlCalculator extends JPanel implements ActionListener{
 					public void itemStateChanged(ItemEvent e) {
 						if(e.getStateChange()== ItemEvent.SELECTED){
 								if(JCnivelEscolar.getSelectedIndex()==0){
-										SnivelEducativo="Preescolar";
+										SnivelEducativo="PREESCOLAR";
 									}
 							
 								if(JCnivelEscolar.getSelectedIndex()==1){
-										SnivelEducativo="Primaria";
+										SnivelEducativo="PRIMARIA";
 									}
 								if(JCnivelEscolar.getSelectedIndex()==2){
-										SnivelEducativo="Secundaria";
+										SnivelEducativo="SECUNDARIA";
 									}
 								if(JCnivelEscolar.getSelectedIndex()==3){
-										SnivelEducativo="Preparatoria";
+										SnivelEducativo="PREPARATORIA";
 									}
-								if(JCnivelEscolar.getSelectedIndex()==0){
-									SnivelEducativo="Profesional Tecnico";
+								if(JCnivelEscolar.getSelectedIndex()==4){
+									SnivelEducativo="TECNICO";
 									}
 						}
 						
@@ -175,13 +176,14 @@ public class controlCalculator extends JPanel implements ActionListener{
 		
 
 		this.JTcolegiaturaTotal   = new JTextField(15);
-		JTcolegiaturaTotal.setHorizontalAlignment(JTextField.RIGHT);
+		JTcolegiaturaTotal.setHorizontalAlignment(JTextField.LEFT);
 		this.JLcolegiaturaTotal  = new JLabel("Colegiatura Total:  ");
 		this.add(JLcolegiaturaTotal  );
 		this.add(JTcolegiaturaTotal );
 		
 		this.ok = new JButton("Aceptar");
 		this.add(ok);
+		ok.addActionListener(this);
 		
 		this.setVisible(true);
 		
@@ -189,6 +191,7 @@ public class controlCalculator extends JPanel implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		try{
 			if(e.getSource()==ok){
 				calcular = new Calculator2(Double.parseDouble(JTaguinaldo.getText()),
 										   Double.parseDouble(JTaguinaldo.getText()),
@@ -201,26 +204,18 @@ public class controlCalculator extends JPanel implements ActionListener{
 										   Double.parseDouble(JTcuentaRetiro.getText()),
 										   Double.parseDouble(JTtransporteEscolar.getText()),
 										   Double.parseDouble(JTcolegiaturaTotal.getText()),
-										  /* JCnivelEscolar.getSelectedIndex()*/SnivelEducativo );
+										  SnivelEducativo );
+				
+								JOptionPane.showMessageDialog(null,calcular.toString(), "Resultados", 1);	
+								}
+							}catch(NumberFormatException error){
+									JOptionPane.showMessageDialog(null, "NO SE INTRODUJERON DATOS CORRECTAMENTE Y/O QUEDARON LUGARES EN BLANCO", "ERROR", 1);
+				
+			}
+				
 			}
 		
-	}
+	
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
