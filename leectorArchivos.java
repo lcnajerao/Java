@@ -29,11 +29,19 @@ public class leectorArchivos{
 			bf= new BufferedReader(new FileReader(ruta));
 
 
+
 			String Linea;
+			StringTokenizer st = null;
+			int lineNumber = 0, tokenNumber=0;
 
 			while((Linea = bf.readLine()) != null){
-
+				lineNumber++;
+				st = new StringTokenizer(Linea,",");
 				System.out.println(Linea);
+				while(st.hasMoreTokens()){
+					tokenNumber++;
+					System.out.println("Line# "+lineNumber+", Token# "+tokenNumber+" ,Token:"+st.nextToken());
+				}
 			}
 			bf.close();
 
